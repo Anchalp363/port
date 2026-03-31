@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Label Aarna — CRO Proposal · Codestrokes.Solution</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --gold: #c8a96e;
+  --gold-light: #e2c98a;
+  --gold-dim: rgba(200,169,110,0.15);
+  --bg: #0d0b08;
+  --bg2: #111009;
+  --bg3: #0f0e0b;
+  --text: #e8e0d0;
+  --muted: #9a9080;
+  --faint: #5a5248;
+  --red: #ff8080;
+  --red-bg: #2a1212;
+  --orange: #ffb880;
+  --orange-bg: #2a1e10;
+  --green: #80ffb0;
+  --green-bg: #102a1e;
+  --border: rgba(200,169,110,0.1);
+  --border-bright: rgba(200,169,110,0.22);
+}
+body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); font-size:14px; line-height:1.6; overflow-x:hidden; }
+body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; z-index:999; opacity:0.45; }
+
+/* ── COVER ── */
+.cover { min-height:100vh; display:flex; flex-direction:column; justify-content:space-between; padding:28px 80px 60px; position:relative; border-bottom:1px solid var(--border); background:radial-gradient(ellipse 80% 50% at 50% -10%, rgba(200,169,110,0.07) 0%, transparent 70%); }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.agency-name { font-size:11px; letter-spacing:0.28em; color:var(--gold); text-transform:uppercase; font-weight:500; }
+.doc-ref { font-size:11px; color:var(--muted); letter-spacing:0.1em; text-align:right; line-height:1.9; }
+.cover-center { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px 0 32px; }
+.cover-eyebrow { font-size:10px; letter-spacing:0.32em; color:var(--gold); text-transform:uppercase; margin-bottom:24px; }
+.cover-title { font-family:'Cormorant Garamond',serif; font-size:clamp(64px,10vw,124px); font-weight:400; line-height:0.93; letter-spacing:-0.02em; color:var(--text); }
+.cover-title em { font-style:italic; color:var(--gold-light); }
+.cover-rule { width:56px; height:1px; background:var(--gold); margin:28px auto; opacity:0.45; }
+.cover-subtitle { font-size:13px; color:var(--muted); max-width:520px; line-height:1.9; letter-spacing:0.03em; text-align:center; }
+.cover-bottom { display:flex; justify-content:space-between; align-items:flex-end; }
+.cover-meta { display:flex; gap:52px; }
+.meta-item label { display:block; font-size:9.5px; letter-spacing:0.22em; color:var(--gold); text-transform:uppercase; margin-bottom:6px; }
+.meta-item span { font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--text); }
+.cover-stamp { font-size:10px; letter-spacing:0.14em; color:var(--faint); text-transform:uppercase; text-align:right; line-height:2; }
+
+/* ── DIVIDERS ── */
+.hr { height:1px; background:var(--border); margin:0; }
+
+/* ── FULL-WIDTH INTRO TEXT ── */
+.intro-block { padding:80px 80px 72px; border-bottom:1px solid var(--border); background:radial-gradient(ellipse 60% 80% at 100% 50%, rgba(200,169,110,0.04) 0%, transparent 60%); }
+.intro-label { font-size:10px; letter-spacing:0.28em; color:var(--gold); text-transform:uppercase; margin-bottom:24px; }
+.intro-block h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,4.5vw,56px); font-weight:300; line-height:1.15; max-width:760px; }
+.intro-block h2 em { font-style:italic; color:var(--gold-light); }
+.intro-body { margin-top:32px; display:grid; grid-template-columns:1fr 1fr; gap:32px 60px; max-width:900px; }
+.intro-body p { font-size:13px; color:var(--muted); line-height:1.85; }
+
+/* ── BRAND RESEARCH ── */
+.research-section { padding:80px 80px; border-bottom:1px solid var(--border); }
+.section-eyebrow { font-size:10px; letter-spacing:0.28em; color:var(--gold); text-transform:uppercase; margin-bottom:40px; }
+.research-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+.research-card { background:var(--bg); padding:32px 28px; }
+.research-card-num { font-family:'Cormorant Garamond',serif; font-size:13px; color:var(--faint); letter-spacing:0.1em; margin-bottom:16px; }
+.research-card-label { font-size:10px; letter-spacing:0.22em; color:var(--gold); text-transform:uppercase; margin-bottom:10px; }
+.research-card h3 { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:var(--text); margin-bottom:12px; line-height:1.25; }
+.research-card p { font-size:12px; color:var(--muted); line-height:1.8; }
+.research-stat { font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; color:var(--gold-light); line-height:1; margin-bottom:4px; }
+.research-stat-label { font-size:11px; color:var(--muted); letter-spacing:0.1em; }
+
+/* ── OBSERVATION BLOCK ── */
+.obs-section { padding:0 80px 80px; border-bottom:1px solid var(--border); }
+.obs-section h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(28px,3.5vw,44px); font-weight:300; margin-bottom:32px; line-height:1.2; }
+.obs-section h2 em { font-style:italic; color:var(--gold); }
+.obs-list { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); }
+.obs-item { background:var(--bg); padding:24px 26px; display:flex; gap:18px; }
+.obs-bullet { font-family:'Cormorant Garamond',serif; font-size:28px; color:rgba(200,169,110,0.2); flex-shrink:0; line-height:1; margin-top:2px; }
+.obs-text strong { font-size:13px; font-weight:500; color:var(--text); display:block; margin-bottom:6px; }
+.obs-text span { font-size:12px; color:var(--muted); line-height:1.75; }
+
+/* ── WHY US ── */
+.why-section { padding:80px 80px; border-bottom:1px solid var(--border); background:radial-gradient(ellipse 80% 60% at 0% 50%, rgba(200,169,110,0.04), transparent 60%); }
+.why-section > .section-eyebrow { margin-bottom:40px; }
+.why-header { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,4vw,52px); font-weight:300; line-height:1.15; max-width:680px; margin-bottom:48px; }
+.why-header em { font-style:italic; color:var(--gold-light); }
+.why-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+.why-card { background:var(--bg); padding:32px 30px; }
+.why-card-icon { font-family:'Cormorant Garamond',serif; font-size:36px; color:rgba(200,169,110,0.25); margin-bottom:16px; }
+.why-card h3 { font-size:14px; font-weight:500; color:var(--text); margin-bottom:10px; letter-spacing:0.02em; }
+.why-card p { font-size:12px; color:var(--muted); line-height:1.8; }
+.why-card.highlighted { background:rgba(200,169,110,0.04); }
+
+/* ── PAGE SECTION HEADER ── */
+.page-section-header { display:grid; grid-template-columns:90px 1fr; padding:48px 80px 0; align-items:center; gap:24px; margin-top:20px; }
+.page-section-number { font-family:'Cormorant Garamond',serif; font-size:88px; font-weight:300; color:rgba(200,169,110,0.1); line-height:1; }
+.page-section-info h2 { font-family:'Cormorant Garamond',serif; font-size:34px; font-weight:300; letter-spacing:0.04em; color:var(--gold-light); }
+.page-section-info p { font-size:12px; color:var(--muted); letter-spacing:0.05em; margin-top:4px; }
+
+/* ── TABLE ── */
+.changes-section { padding:0 80px 48px; }
+.changes-grid { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:24px; }
+.change-row { display:grid; grid-template-columns:52px 1fr 126px 98px; background:var(--bg); transition:background 0.18s; }
+.change-row:hover { background:#0f0e0a; }
+.change-row>div { padding:20px 18px; border-right:1px solid var(--border); }
+.change-row>div:last-child { border-right:none; }
+.header-row { background:var(--bg2) !important; }
+.header-row>div { font-size:9.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:500; padding:13px 18px; }
+.change-num { font-family:'Cormorant Garamond',serif; font-size:20px; color:rgba(200,169,110,0.25); display:flex; align-items:flex-start; padding-top:22px; }
+.change-page { font-size:9px; letter-spacing:0.2em; color:var(--gold); text-transform:uppercase; margin-bottom:6px; font-weight:500; }
+.change-title { font-size:13.5px; font-weight:500; color:var(--text); margin-bottom:7px; }
+.change-desc { font-size:11.5px; color:var(--muted); line-height:1.7; max-width:620px; }
+.change-priority { display:flex; align-items:flex-start; padding-top:22px; }
+.change-lift { font-family:'Cormorant Garamond',serif; font-size:22px; color:#70c070; display:flex; align-items:flex-start; padding-top:20px; }
+
+/* ── PRIORITY CHIPS ── */
+.priority-chip { display:inline-flex; align-items:center; gap:5px; padding:4px 11px; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; font-weight:500; border-radius:2px; }
+.priority-chip::before { content:''; width:5px; height:5px; border-radius:50%; }
+.p-critical { background:var(--red-bg); color:var(--red); }
+.p-critical::before { background:var(--red); }
+.p-high { background:var(--orange-bg); color:var(--orange); }
+.p-high::before { background:var(--orange); }
+.p-medium { background:var(--green-bg); color:var(--green); }
+.p-medium::before { background:var(--green); }
+
+/* ── LEGEND ── */
+.legend-bar { display:flex; align-items:center; gap:28px; padding:18px 80px; border-bottom:1px solid var(--border); background:rgba(255,255,255,0.01); }
+.legend-label { font-size:9.5px; letter-spacing:0.18em; color:var(--muted); text-transform:uppercase; }
+.legend-chips { display:flex; gap:14px; }
+
+/* ── SECTION INTRO ── */
+.section-intro { padding:80px 80px 48px; display:flex; align-items:flex-end; justify-content:space-between; border-bottom:1px solid var(--border); }
+.section-intro h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(34px,5vw,58px); font-weight:300; line-height:1.1; letter-spacing:-0.01em; max-width:580px; }
+.section-intro h1 em { font-style:italic; color:var(--gold); }
+.section-stats { display:flex; gap:36px; text-align:right; flex-shrink:0; }
+.stat-item span { display:block; font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; color:var(--gold-light); line-height:1; }
+.stat-item small { font-size:9.5px; color:var(--muted); letter-spacing:0.16em; text-transform:uppercase; }
+
+/* ── FOOTER ── */
+.doc-footer { padding:64px 80px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:flex-end; margin-top:40px; }
+.footer-agency h3 { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:300; color:var(--gold-light); }
+.footer-agency p { font-size:11px; color:var(--muted); letter-spacing:0.1em; margin-top:6px; }
+.footer-note { font-size:11px; color:var(--muted); text-align:right; line-height:1.85; max-width:340px; }
+.footer-note strong { color:var(--gold); font-weight:500; }
+
+@media(max-width:900px){
+  .cover,.intro-block,.research-section,.obs-section,.why-section,.changes-section,.page-section-header,.legend-bar,.section-intro,.doc-footer { padding-left:24px; padding-right:24px; }
+  .cover { padding-top:40px; padding-bottom:40px; }
+  .research-grid,.why-cards,.obs-list { grid-template-columns:1fr; }
+  .intro-body { grid-template-columns:1fr; }
+  .section-intro { flex-direction:column; align-items:flex-start; gap:28px; }
+  .section-stats { text-align:left; }
+  .change-row { grid-template-columns:40px 1fr; }
+  .change-priority,.change-lift { display:none; }
+  .cover-meta { gap:28px; flex-wrap:wrap; }
+  .cover-bottom { flex-direction:column; gap:24px; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ COVER ══════════ -->
+<section class="cover">
+  <div class="cover-top">
+    <div class="agency-name">Codestrokes.Solution</div>
+    <div class="doc-ref">
+      Confidential · Client Proposal<br>
+      Ref: CRO-LA-2025<br>
+      labelaarna.com
+    </div>
+  </div>
+
+  <div class="cover-center">
+    <div class="cover-eyebrow">Conversion Rate Optimisation · Full Audit</div>
+    <div class="cover-title">
+      Label<br><em>Aarna</em>
+    </div>
+    <div class="cover-rule"></div>
+    <p class="cover-subtitle">
+      A research-led, brand-specific roadmap to convert more of Label Aarna's 1M+ customer base — without spending an extra rupee on ads. Built on a deep audit of labelaarna.com, competitor benchmarking, and behavioural design principles.
+    </p>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-meta">
+      <div class="meta-item">
+        <label>Prepared for</label>
+        <span>Label Aarna</span>
+      </div>
+      <div class="meta-item">
+        <label>Prepared by</label>
+        <span>Codestrokes.Solution</span>
+      </div>
+      <div class="meta-item">
+        <label>Document</label>
+        <span>2025 · v1.0</span>
+      </div>
+    </div>
+    <div class="cover-stamp">
+      23 Optimisations · 4 Pages Audited<br>
+      Research · Strategy · Implementation
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ AGENCY INTRO ══════════ -->
+<section class="intro-block">
+  <div class="intro-label">About Codestrokes.Solution</div>
+  <h2>We don't just build websites.<br><em>We engineer revenue.</em></h2>
+  <div class="intro-body">
+    <p>Codestrokes.Solution is a conversion-focused digital agency specialising in Shopify D2C brands. We combine behavioural psychology, data-driven UX, and high-fidelity Shopify development to turn existing traffic into measurable revenue — without inflating your ad spend.</p>
+    <p>This proposal is not a template. Every recommendation you'll read was written after a thorough audit of labelaarna.com — analysing your current site structure, customer journey, product catalogue, trust signals, mobile experience, and competitive positioning across the Indian fashion D2C space.</p>
+    <p>Our work sits at the intersection of strategic thinking and pixel-perfect execution. We understand that for a brand like Label Aarna — with a genuine 1M+ happy customer base and a 4.7-star reputation — the goal is not to look good. It's to make sure every visitor who lands on your store can effortlessly find, trust, and buy from you.</p>
+    <p>The 23 changes in this document are sequenced by business impact. Implement the Critical tier first and you can expect meaningful uplift within the first 30 days. Everything else compounds on top.</p>
+  </div>
+</section>
+
+
+<!-- ══════════ BRAND RESEARCH ══════════ -->
+<section class="research-section">
+  <div class="section-eyebrow">Brand Research — What We Found at labelaarna.com</div>
+
+  <div class="research-grid">
+
+    <div class="research-card">
+      <div class="research-card-num">01</div>
+      <div class="research-card-label">Brand Strength</div>
+      <div class="research-stat">1M+</div>
+      <div class="research-stat-label">Happy Customers</div>
+      <p style="margin-top:14px;">Label Aarna has built exceptional customer loyalty. The marquee strip proudly displays 1M+ happy customers and a consistent 4.7/5 rating across 1,631+ verified reviews — a proof-of-product that most D2C brands would dream of. Our job is to make this trust visible at every purchase hesitation point.</p>
+    </div>
+
+    <div class="research-card">
+      <div class="research-card-num">02</div>
+      <div class="research-card-label">Product Catalogue</div>
+      <div class="research-stat">250+</div>
+      <div class="research-stat-label">Active SKUs across 4 categories</div>
+      <p style="margin-top:14px;">The store spans Kaftans (198 products), Co-ord Sets (31), Sarees (53+), and Suit Sets — in fabrics ranging from Soft Satin and Linen Blend to Modal Satin and Woven Silk. This range is a strength, but without advanced filtering and guided navigation, most visitors never discover more than the first scroll.</p>
+    </div>
+
+    <div class="research-card">
+      <div class="research-card-num">03</div>
+      <div class="research-card-label">Pricing Position</div>
+      <div class="research-stat">₹1,199</div>
+      <div class="research-stat-label">Entry point — with up to 64% savings</div>
+      <p style="margin-top:14px;">Products are priced accessibly (₹1,199–₹4,499) with aggressive sale discounts — some up to 64% off. This is a powerful conversion lever. However, without clear strike-through pricing hierarchy, urgency signals, and AOV optimisation, a significant portion of revenue is being left on the table at cart stage.</p>
+    </div>
+
+    <div class="research-card">
+      <div class="research-card-num">04</div>
+      <div class="research-card-label">Trust Infrastructure</div>
+      <div class="research-stat">4.7★</div>
+      <div class="research-stat-label">1,631 verified customer reviews</div>
+      <p style="margin-top:14px;">The brand already has Free COD, Free Shipping, and Easy Returns — all present in the ticker and cart drawer. But these signals are not placed at the highest-anxiety moments: directly below the Add to Cart button on product pages. Moving them there alone can recover meaningful hesitation-driven abandonment.</p>
+    </div>
+
+    <div class="research-card">
+      <div class="research-card-num">05</div>
+      <div class="research-card-label">Brand Identity</div>
+      <div class="research-stat" style="font-size:32px;line-height:1.2;">"For every version<br>of you"</div>
+      <p style="margin-top:14px;">Label Aarna's tagline is a genuine differentiator — it speaks to versatility and self-expression. Yet this messaging disappears after the homepage. It never appears on product pages, category pages, or at checkout. Reinforcing it throughout the funnel builds brand recall and emotional justification for purchase.</p>
+    </div>
+
+    <div class="research-card">
+      <div class="research-card-num">06</div>
+      <div class="research-card-label">Social Mission</div>
+      <div class="research-card-label" style="margin-top:8px;color:var(--text);font-size:14px;font-weight:500;">NGO Partnership</div>
+      <p style="margin-top:12px;">Label Aarna contributes a portion of every purchase to an NGO supporting differently-abled artisans. This is a remarkable and deeply authentic brand story — and it is currently buried in a blog post. Surfacing this on the homepage, product pages, and at checkout creates emotional investment that no discount can replicate.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════ OBSERVATIONS ══════════ -->
+<section class="obs-section">
+  <div class="section-eyebrow" style="padding-top:80px;">Site Audit — Key Observations</div>
+  <h2>What's working — and<br><em>what's costing you revenue</em></h2>
+
+  <div class="obs-list">
+    <div class="obs-item">
+      <div class="obs-bullet">→</div>
+      <div class="obs-text">
+        <strong>Hero slides without a clear CTA hierarchy</strong>
+        <span>The homepage runs three hero banners (Linen Co-ords, Rang Barse Sale, 5th Anniversary) in rotation. Each banner links to a collection — but there is no primary CTA button with contrast or text overlay that communicates a value proposition. Visitors land and scroll without a directed action.</span>
+      </div>
+    </div>
+    <div class="obs-item">
+      <div class="obs-bullet">→</div>
+      <div class="obs-text">
+        <strong>Trust signals exist — but in the wrong positions</strong>
+        <span>Free Shipping, Free COD, and Easy Returns appear in the marquee ticker and inside the cart drawer. They do not appear on product pages below the ATC button — which is where purchase anxiety peaks. Repositioning these costs zero development time and can meaningfully reduce drop-off.</span>
+      </div>
+    </div>
+    <div class="obs-item">
+      <div class="obs-bullet">→</div>
+      <div class="obs-text">
+        <strong>198 kaftans with no filtering by fabric, length, or occasion</strong>
+        <span>The Kaftan collection alone has 198 products — a number that creates choice paralysis without robust filters. There is no way to filter by Short vs Long, Satin vs Cotton, Print style, or Occasion. High-intent shoppers who can't find what they want within two scrolls abandon to competitors.</span>
+      </div>
+    </div>
+    <div class="obs-item">
+      <div class="obs-bullet">→</div>
+      <div class="obs-text">
+        <strong>No AOV optimisation at cart stage</strong>
+        <span>The cart drawer shows items, COD badge, shipping info, and a checkout button. It does not attempt to increase order value through upsell recommendations, free gift progress bars, or "complete the look" suggestions. Given the brand's breadth of catalogue, this is the highest-ROI untapped lever.</span>
+      </div>
+    </div>
+    <div class="obs-item">
+      <div class="obs-bullet">→</div>
+      <div class="obs-text">
+        <strong>1,631 reviews are not visible during the buying decision</strong>
+        <span>Customer reviews are displayed on the homepage "Style with Aarna" section, and on a dedicated Reviews page. But on product pages — where purchase decisions are made — review integration needs to be more prominent, visible above the fold, and include photos to drive the final conversion.</span>
+      </div>
+    </div>
+    <div class="obs-item">
+      <div class="obs-bullet">→</div>
+      <div class="obs-text">
+        <strong>NGO story and brand equity are underutilised</strong>
+        <span>The blog post "Your purchase contributes to an NGO for handicapped people" has real emotional power. Yet it receives no surface area on the homepage hero, no mention on product pages, and no callout at checkout. For a segment of shoppers, this story can be the deciding factor — but they never see it.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ WHY US ══════════ -->
+<section class="why-section">
+  <div class="section-eyebrow">Why Codestrokes.Solution</div>
+  <div class="why-header">The agency that did the work <em>before</em> the pitch.</div>
+
+  <div class="why-cards">
+    <div class="why-card highlighted">
+      <div class="why-card-icon">I</div>
+      <h3>We audited your actual store</h3>
+      <p>Every recommendation in this document comes from a live audit of labelaarna.com — not a generic checklist. We scrolled your homepage, browsed your kaftan collection, added products to cart, and traced the full mobile checkout flow. We know exactly where your visitors are dropping off.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-card-icon">II</div>
+      <h3>Shopify-native execution</h3>
+      <p>We build on Shopify every day. Every change in this proposal — from sticky ATC to advanced filters to cart upsell logic — can be implemented without migrating themes or disrupting your live store. We work within your existing infrastructure and optimise it.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-card-icon">III</div>
+      <h3>D2C fashion is our domain</h3>
+      <p>We understand the Indian fashion D2C customer — her decision drivers, her mobile-first behaviour, her sensitivity to trust signals in a COD-heavy market. The strategies in this proposal are calibrated specifically for a brand like Label Aarna: premium aspiration at accessible price points.</p>
+    </div>
+    <div class="why-card highlighted">
+      <div class="why-card-icon">IV</div>
+      <h3>Results, not reports</h3>
+      <p>This document is not where our work ends — it's where it begins. Each of the 23 changes is defined, scoped, and prioritised for implementation. We take ownership of delivery and measure impact. Our success is tied directly to your conversion rate, not to the number of slides we produce.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-card-icon">V</div>
+      <h3>Respect for the brand</h3>
+      <p>Label Aarna has a distinct visual identity and a loyal customer base built over 5 years. We don't impose generic CRO templates onto brands that have worked hard to build their aesthetic. Every change we recommend respects the brand's luxury positioning while removing friction from the purchase path.</p>
+    </div>
+    <div class="why-card highlighted">
+      <div class="why-card-icon">VI</div>
+      <h3>Phased, low-risk delivery</h3>
+      <p>We sequence changes by impact and risk. Critical changes come first — they deliver the highest ROI and the lowest technical complexity. Medium-term changes follow once baselines are established. Nothing in this roadmap requires a full site rebuild or extended downtime.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ BREAKDOWN HEADER ══════════ -->
+<div class="section-intro">
+  <h1>Full CRO<br><em>Changes Breakdown</em></h1>
+  <div class="section-stats">
+    <div class="stat-item"><span>23</span><small>Changes</small></div>
+    <div class="stat-item"><span>08</span><small>Critical</small></div>
+    <div class="stat-item"><span>4</span><small>Pages</small></div>
+  </div>
+</div>
+
+<div class="legend-bar">
+  <span class="legend-label">Priority</span>
+  <div class="legend-chips">
+    <span class="priority-chip p-critical">Critical</span>
+    <span class="priority-chip p-high">High</span>
+    <span class="priority-chip p-medium">Medium</span>
+  </div>
+</div>
+
+
+<!-- ══════════ HOMEPAGE ══════════ -->
+<div class="page-section-header">
+  <div class="page-section-number">01</div>
+  <div class="page-section-info">
+    <h2>Homepage</h2>
+    <p>11 optimisations identified · Primary acquisition surface · labelaarna.com/</p>
+  </div>
+</div>
+
+<section class="changes-section">
+  <div class="changes-grid">
+
+    <div class="change-row header-row">
+      <div>#</div><div>Change &amp; What Needs To Be Fixed</div><div>Priority</div><div>Est. Lift</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">1</div>
+      <div>
+        <div class="change-page">Homepage</div>
+        <div class="change-title">Hero Redesign with CTA</div>
+        <div class="change-desc">Your current hero rotates three banners — Linen Co-ords, Rang Barse Sale, and 5th Anniversary — all as full-bleed images with no text CTA overlay visible above the fold. A visitor landing for the first time has no directed action. The hero needs a bold, single-sentence headline that delivers Label Aarna's value proposition ("For every version of you") with a high-contrast "Shop Now" button anchored above the fold on both desktop and mobile. The CTA should not disappear with the slide rotation.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-critical">Critical</span></div>
+      <div class="change-lift">+18%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">2</div>
+      <div>
+        <div class="change-page">Homepage</div>
+        <div class="change-title">Trust Strip</div>
+        <div class="change-desc">The brand already has Free Shipping, Free COD, and Easy Returns — and they appear in the marquee ticker at the very top. However, this ticker moves too fast and shares space with promotional messages, diluting each signal. A dedicated, static trust strip immediately below the header — with icon + label for each promise — needs to replace or supplement the ticker. These reassurances reduce first-visit bounce, particularly from mobile users who are evaluating whether to even browse.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-critical">Critical</span></div>
+      <div class="change-lift">+12%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">3</div>
+      <div>
+        <div class="change-page">Homepage</div>
+        <div class="change-title">Category Navigation</div>
+        <div class="change-desc">The "Collections" section exists on the homepage and shows four tiles: Co-ord Set, Kaftan, Suit Set, and Sarees. However, it sits roughly 60% down the page — far below the fold on most devices. This section needs to move significantly higher (second position after the trust strip), feature more editorial imagery, and include sub-category shortcuts (e.g. "Long Kaftans", "Linen Co-ords") to help visitors self-segment faster and reach relevant products in fewer taps.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-high">High</span></div>
+      <div class="change-lift">+10%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">4</div>
+      <div>
+        <div class="change-page">Homepage</div>
+        <div class="change-title">Best Sellers Section</div>
+        <div class="change-desc">The homepage currently shows "Co-ord Sets" and "Kaftans" product sections — but both are standard collection feeds, not curated "Best Sellers" with social validation. A dedicated Best Sellers carousel — pulling your top 8 reviewed and highest-selling products across all categories — needs to be introduced. Each product should show its star rating and number of reviews (e.g. "★4.8 · 20 reviews") inline on the card to reduce the social-proof gap for first-time visitors who haven't yet navigated to a product page.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-high">High</span></div>
+      <div class="change-lift">+14%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">5</div>
+      <div>
+        <div class="change-page">Homepage</div>
+        <div class="change-title">USP Storytelling + NGO Feature</div>
+        <div class="change-desc">Label Aarna has two powerful differentiators that are invisible on the homepage: (1) the brand's ethos of dressing "every version of you" — versatile, inclusive, occasion-spanning fashion — and (2) the NGO partnership where every purchase contributes to handicapped artisans. Neither of these stories appears on the homepage in a designed format. A branded mid-page strip — with an icon row (Crafted with Care · Your Purchase Gives Back · 1M+ Women Trust Us) and a short 2-line narrative — needs to be built. This alone can be the deciding factor for a values-led customer.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-medium">Medium</span></div>
+      <div class="change-lift">+8%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">6</div>
+      <div>
+        <div class="change-page">Homepage</div>
+        <div class="change-title">UGC Gallery</div>
+        <div class="change-desc">The "Style with Aarna" section is present on the homepage — showing a 4.7/5 aggregate rating header and customer reviews — but it is text-only. Given that you have 1,631+ reviews, many of which likely come with product photos, a visual UGC grid of customer outfit photos needs to replace or supplement the current text review feed. Real women in real Label Aarna outfits address fit, drape, and colour accuracy concerns more effectively than any copywritten description. Each photo should be shoppable (clicking reveals the product).</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-critical">Critical</span></div>
+      <div class="change-lift">+22%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">7</div>
+      <div>
+        <div class="change-page">Homepage</div>
+        <div class="change-title">Promotional Banners</div>
+        <div class="change-desc">The brand runs active promotions (Rang Barse Sale, 5th Anniversary offers) visible in the hero — but these are static banners with no urgency mechanism. A dynamic promotional banner module needs to be added that supports countdown timers, collection-specific discount callouts (e.g. "Extra 5% off prepaid on all Sarees today"), and is easily swappable by your team without developer involvement. This supports faster campaign cycles and creates the time-sensitivity that converts hesitating visitors.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-high">High</span></div>
+      <div class="change-lift">+9%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">8</div>
+      <div>
+        <div class="change-page">Homepage</div>
+        <div class="change-title">Trending Collections / New Launch Spotlight</div>
+        <div class="change-desc">The nav menu has a "New Launch" category with sub-collections (Kaftan, Co-ord Set, Saree). But on the homepage, new arrivals are not explicitly surfaced with a "Just Dropped" or "New In" label that creates freshness and urgency for returning visitors. A "New Launch" spotlight section — with a "just launched" tag on each card — should be added near the top of the homepage scroll and updated with each new collection drop to drive repeat-visit engagement.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-high">High</span></div>
+      <div class="change-lift">+11%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">9</div>
+      <div>
+        <div class="change-page">Homepage</div>
+        <div class="change-title">Testimonials &amp; Email Capture</div>
+        <div class="change-desc">The homepage bottom section has a newsletter subscribe input ("Sign up and save") but it offers no stated incentive — no discount, no gift, no promise. An "Enter your email" box with zero context converts at a fraction of what "Get 10% off your first order" achieves. The email capture needs a visible offer, and the surrounding space should feature 3–4 featured testimonials pulled from your 1,631 reviews — specifically those that mention comfort, quality, and occasion (wedding, office, casual) to address different visitor intent types.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-high">High</span></div>
+      <div class="change-lift">+13%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">10</div>
+      <div>
+        <div class="change-page">Homepage</div>
+        <div class="change-title">Mobile Optimisation</div>
+        <div class="change-desc">The majority of Label Aarna's traffic is mobile-first. The current homepage has several mobile UX issues identified during audit: hero banners display without legible text overlay on small screens; the category tiles are small and tightly packed; CTA buttons are below the minimum 44px touch target; and the product card grid loads three columns on some devices, making images too small to evaluate. A dedicated mobile layout pass is required across all homepage sections — with specific attention to thumb-zone CTAs, image crop strategy, and content sequencing for vertical scroll behaviour.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-critical">Critical</span></div>
+      <div class="change-lift">+15%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">11</div>
+      <div>
+        <div class="change-page">Homepage</div>
+        <div class="change-title">Page Speed Optimisation</div>
+        <div class="change-desc">The homepage loads multiple large banner images, an animated ticker, and several third-party scripts (reviews widget, social feeds) without deferral or lazy loading. Images are not being served in WebP format, and there is no resource prioritisation strategy for above-the-fold content. A technical audit + optimisation pass is needed: convert all images to WebP/AVIF, implement lazy loading for below-fold assets, defer non-critical scripts, and audit Shopify app scripts for render-blocking behaviour. Every 100ms saved in load time has a measurable positive impact on conversion.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-critical">Critical</span></div>
+      <div class="change-lift">−0.8s</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════ COLLECTION ══════════ -->
+<div class="page-section-header">
+  <div class="page-section-number">02</div>
+  <div class="page-section-info">
+    <h2>Collection Page</h2>
+    <p>5 optimisations identified · Discovery &amp; browse experience · /collections/*</p>
+  </div>
+</div>
+
+<section class="changes-section">
+  <div class="changes-grid">
+
+    <div class="change-row header-row">
+      <div>#</div><div>Change &amp; What Needs To Be Fixed</div><div>Priority</div><div>Est. Lift</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">12</div>
+      <div>
+        <div class="change-page">Collection</div>
+        <div class="change-title">Advanced Filters</div>
+        <div class="change-desc">The Kaftan collection alone has 198 products. Without filters, a shopper looking for a "short satin kaftan under ₹1,500 in blue" must scroll through all 198 items. The current collection pages offer only a sort dropdown with no filter options for Size, Colour, Fabric Type, Length, Price Range, or Occasion. A multi-select filter panel — sticky on desktop, drawer-based on mobile — needs to be built. Applied filters should appear as dismissible chips. Results should update without full page reload. This is the single highest-impact change for the collection experience.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-critical">Critical</span></div>
+      <div class="change-lift">+18%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">13</div>
+      <div>
+        <div class="change-page">Collection</div>
+        <div class="change-title">Quick Add + Buy Now</div>
+        <div class="change-desc">Product cards currently have a "Quick shop" button that opens a size selector modal — this is a good start. However, the modal does not include a "Buy Now" option for direct checkout, and the post-add experience (cart feedback) is unclear on mobile. The Quick Add flow needs to be refined: size selection should be faster, the "Add to Cart" confirmation should be visible and satisfying (cart icon animation + drawer open), and a "Buy Now" option should be added for high-intent users who want to skip the cart entirely and go straight to checkout.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-critical">Critical</span></div>
+      <div class="change-lift">+12%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">14</div>
+      <div>
+        <div class="change-page">Collection</div>
+        <div class="change-title">Wishlist + Hover State</div>
+        <div class="change-desc">There is no wishlist or save-for-later functionality visible on product cards. Shoppers who are browsing but not yet ready to purchase have no way to bookmark products they like — meaning they leave and forget. A persistent heart icon wishlist button needs to be added to every product card. On desktop, hovering the card should swap to an alternate product image (worn vs flat lay, or front vs back) to provide richer visual context without requiring a page visit. Wishlist data also creates a powerful remarketing audience for future campaigns.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-high">High</span></div>
+      <div class="change-lift">+9%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">15</div>
+      <div>
+        <div class="change-page">Collection</div>
+        <div class="change-title">Mobile UX</div>
+        <div class="change-desc">On mobile, the collection grid loads two products per row — which is correct — but product images are cropped inconsistently, price and title typography is undersized, and the filter/sort bar is not easily accessible at the top. The mobile collection experience needs: a persistent top bar with filter + sort always visible, consistent image aspect ratio across all product cards, larger title and price text, and an "infinite scroll" or "load more" mechanism that remembers scroll position if a user navigates back from a product page (currently this resets to the top, losing discovery progress).</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-high">High</span></div>
+      <div class="change-lift">+10%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">16</div>
+      <div>
+        <div class="change-page">Collection</div>
+        <div class="change-title">Urgency + Social Proof on Cards</div>
+        <div class="change-desc">Product cards currently show product name, price, and the sale discount badge. They do not show star ratings, review counts, stock levels, or demand signals. Given that Label Aarna has strong review data (products with 8–20 verified reviews each), this data needs to be surfaced on the collection grid: a star rating + count below each product name, "Only 3 left" for low-stock variants, and "12 sold this week" for trending items. These micro-signals eliminate the need for visitors to visit every product page before forming purchase intent.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-high">High</span></div>
+      <div class="change-lift">+11%</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════ PRODUCT PAGE ══════════ -->
+<div class="page-section-header">
+  <div class="page-section-number">03</div>
+  <div class="page-section-info">
+    <h2>Product Page</h2>
+    <p>4 optimisations identified · Primary conversion surface · /products/*</p>
+  </div>
+</div>
+
+<section class="changes-section">
+  <div class="changes-grid">
+
+    <div class="change-row header-row">
+      <div>#</div><div>Change &amp; What Needs To Be Fixed</div><div>Priority</div><div>Est. Lift</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">17</div>
+      <div>
+        <div class="change-page">Product</div>
+        <div class="change-title">Sticky Product Panel + Add to Cart</div>
+        <div class="change-desc">When a visitor scrolls down a product page to read the description, care instructions, or reviews, the Add to Cart button disappears from view entirely. This is a critical friction point: the moment a shopper finishes reading and decides to buy, they have to scroll back up. A sticky bottom bar (on mobile) showing the product name, selected size, price, and ATC button must be implemented. On desktop, the right-column product details should become sticky relative to the image gallery. The CTA must remain accessible at zero scroll distance at every point on the page.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-critical">Critical</span></div>
+      <div class="change-lift">+12%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">18</div>
+      <div>
+        <div class="change-page">Product</div>
+        <div class="change-title">UGC Integration + Trust Badges</div>
+        <div class="change-desc">Label Aarna's review section needs to be moved significantly higher on the product page — currently it sits below the fold, after product description and related products. The aggregate star rating (e.g. ★4.8 · 16 reviews) must appear immediately below the product title, and individual photo reviews should be surfaced in a dedicated UGC strip directly below the product images. Below the Add to Cart button, a horizontal badge row (Secure Checkout · Free COD · Easy Returns · Genuine Product) must be added — these need to appear at the precise moment purchase hesitation is highest: right at the ATC.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-high">High</span></div>
+      <div class="change-lift">+15%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">19</div>
+      <div>
+        <div class="change-page">Product</div>
+        <div class="change-title">Variant UX Redesign</div>
+        <div class="change-desc">Colour and size selectors on product pages need a significant UX upgrade. Current colour swatches are small and do not show the actual fabric print or colour accurately. Size selectors lack a clear selected state (the active size should be visually distinct — filled, not just outlined). Out-of-stock variants need to be visually crossed out with a greyed appearance, and a "Notify Me When Available" CTA should appear when an OOS variant is selected. Finally, selecting a colour variant should dynamically swap the product image gallery to show that specific colourway without a page reload.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-critical">Critical</span></div>
+      <div class="change-lift">+10%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">20</div>
+      <div>
+        <div class="change-page">Product</div>
+        <div class="change-title">Urgency Elements</div>
+        <div class="change-desc">Product pages contain no signals that create purchase motivation beyond the discount badge. Three urgency mechanisms need to be implemented: (1) a low-stock counter ("Only 2 left in size M") powered by actual inventory data; (2) a "X people are viewing this right now" live social proof counter for high-traffic products; and (3) a delivery estimate line ("Order now — estimated delivery by [date]") to reduce hesitation caused by shipping uncertainty. These elements must feel authentic and data-driven — for a brand with Label Aarna's credibility, fabricated urgency would be counterproductive.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-high">High</span></div>
+      <div class="change-lift">+9%</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════ CART ══════════ -->
+<div class="page-section-header">
+  <div class="page-section-number">04</div>
+  <div class="page-section-info">
+    <h2>Cart</h2>
+    <p>3 optimisations identified · Revenue maximisation &amp; checkout conversion</p>
+  </div>
+</div>
+
+<section class="changes-section">
+  <div class="changes-grid">
+
+    <div class="change-row header-row">
+      <div>#</div><div>Change &amp; What Needs To Be Fixed</div><div>Priority</div><div>Est. Lift</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">21</div>
+      <div>
+        <div class="change-page">Cart</div>
+        <div class="change-title">Free Gift Progress Bar + Upsell</div>
+        <div class="change-desc">The cart drawer currently offers a "Free Gift Unlocked" banner — which is excellent — but it does not communicate a progress mechanic. If the free gift threshold hasn't been met, visitors should see a dynamic progress bar saying "Add ₹X more to unlock your free gift." If it has been met, the banner should celebrate it visibly. Below the cart line items, a "You Might Also Love" horizontal strip should surface 3–4 complementary products (e.g. if a kaftan is in cart, suggest matching dupattas or co-ord bottoms). These two mechanics combined are the highest-AOV lever in the entire funnel.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-high">High</span></div>
+      <div class="change-lift">+19%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">22</div>
+      <div>
+        <div class="change-page">Cart</div>
+        <div class="change-title">Sticky Checkout CTA + Trust Footer</div>
+        <div class="change-desc">On mobile, when the cart drawer has multiple items, the "Check out" button scrolls out of view as users review their items — especially with the order note field and the promotional badge row. The checkout button must be pinned to the bottom of the cart drawer viewport at all times on mobile, with cart total clearly visible beside it. The area immediately below the checkout button should display accepted payment logos (UPI, Cards, COD) and the security badge, providing the final layer of purchase confidence exactly where it's needed most.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-critical">Critical</span></div>
+      <div class="change-lift">+11%</div>
+    </div>
+
+    <div class="change-row">
+      <div class="change-num">23</div>
+      <div>
+        <div class="change-page">Cart</div>
+        <div class="change-title">Exit Intent Recovery</div>
+        <div class="change-desc">Visitors who have added items to cart but are about to leave represent the highest-intent abandonment segment. An exit-intent overlay — triggered on desktop by cursor movement towards the browser chrome, and on mobile after 45 seconds of cart inactivity — needs to be implemented. The overlay should display a personalised message ("Your selected items are selling fast"), show the cart contents, and offer a single-use incentive such as an extra 5% off on prepaid (aligning with a promotion Label Aarna already runs). One-click close is essential to avoid disrupting users who simply moved their cursor accidentally.</div>
+      </div>
+      <div class="change-priority"><span class="priority-chip p-medium">Medium</span></div>
+      <div class="change-lift">+8%</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="doc-footer">
+  <div class="footer-agency">
+    <h3>Codestrokes.Solution</h3>
+    <p>Shopify CRO · D2C Strategy · Digital Experience Design</p>
+  </div>
+  <div class="footer-note">
+    Lift estimates are projections based on industry benchmarks, comparable D2C audits, and observed site behaviour. Actual impact varies with traffic volume, implementation fidelity, and A/B testing discipline. <strong>Codestrokes.Solution</strong> recommends phased delivery — Critical items first — to maximise early ROI and build a compounding optimisation baseline.
+  </div>
+</footer>
+
+</body>
+</html>
