@@ -75,7 +75,7 @@ body:hover #cursor-glow{opacity:1;}
 .count-up{display:inline-block;}
 
 /* ── SHARED ── */
-.section-eyebrow{font-size:10px;letter-spacing:0.28em;color:var(--gold);text-transform:uppercase;margin-bottom:40px;}
+.section-eyebrow{font-size:11px;letter-spacing:0.28em;color:var(--gold);text-transform:uppercase;margin-bottom:40px;}
 .learn-more-btn{display:inline-flex;align-items:center;gap:10px;margin-top:36px;padding:14px 32px;border:1px solid var(--gold);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#0d0b08;background:var(--gold);text-decoration:none;transition:all 0.3s;position:relative;overflow:hidden;font-weight:500;}
 .learn-more-btn::before{content:'';position:absolute;inset:0;background:var(--gold-light);transform:scaleX(0);transform-origin:left;transition:transform 0.35s ease;}
 .learn-more-btn:hover::before{transform:scaleX(1);}
@@ -99,8 +99,8 @@ body:hover #cursor-glow{opacity:1;}
 .service-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width 0.4s ease;}
 .service-card:hover::after{width:100%;}
 .service-card:hover{background:rgba(200,169,110,0.04);}
-.service-card-num{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--faint);letter-spacing:0.1em;margin-bottom:20px;}
-.service-icon{font-family:'Cormorant Garamond',serif;font-size:40px;color:rgba(200,169,110,0.18);margin-bottom:16px;line-height:1;transition:color 0.3s,transform 0.3s;}
+.service-card-num{display:none;}
+.service-icon{font-family:'Cormorant Garamond',serif;font-size:40px;color:rgba(200,169,110,0.18);margin-bottom:16px;line-height:1;transition:color 0.3s,transform 0.3s;margin-top:0;}
 .service-card:hover .service-icon{color:rgba(200,169,110,0.4);transform:scale(1.1);}
 .service-card h3{font-size:14px;font-weight:500;color:var(--text);margin-bottom:10px;}
 .service-card p{font-size:12px;color:var(--muted);line-height:1.8;}
@@ -112,7 +112,7 @@ body:hover #cursor-glow{opacity:1;}
 .research-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform 0.5s ease;}
 .research-card:hover::before{transform:scaleX(1);}
 .research-card:hover{background:rgba(200,169,110,0.03);}
-.research-card-num{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--faint);letter-spacing:0.1em;margin-bottom:16px;}
+.research-card-num{display:none;}
 .research-card-label{font-size:10px;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
 .research-card p{font-size:12px;color:var(--muted);line-height:1.8;}
 .research-stat{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--gold-light);line-height:1;margin-bottom:4px;}
@@ -162,7 +162,8 @@ body:hover #cursor-glow{opacity:1;}
 @keyframes tabSlideIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 .changes-grid{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);}
 .change-row{display:grid;grid-template-columns:44px 1fr 110px 88px;background:var(--bg);transition:background 0.2s,padding-left 0.2s;}
-.change-row:not(.header-row):hover{background:#0f0e0a;padding-left:4px;}
+.change-row:not(.header-row):hover{background:#0f0e0a;}
+@media(min-width:601px){.change-row:not(.header-row):hover{padding-left:4px;}}
 .change-row>div{padding:16px 16px;border-right:1px solid var(--border);}
 .change-row>div:last-child{border-right:none;}
 .header-row{background:var(--bg2)!important;}
@@ -293,16 +294,19 @@ body:hover #cursor-glow{opacity:1;}
 .footer-bottom-right strong{color:rgba(200,169,110,0.6);font-weight:400;}
 .footer-glow{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);width:600px;height:200px;background:radial-gradient(ellipse,rgba(200,169,110,0.05) 0%,transparent 70%);pointer-events:none;}
 
+/* ── TABLET (max 900px) ── */
 @media(max-width:900px){
-  .cover,.intro-block,.services-section,.research-section,.prob-sol-section,.cro-intro-block,.cro-tabs-section,.timeline-section,.stats-banner,.portfolio-section,.why-section,.footer-top,.footer-bottom{padding-left:24px;padding-right:24px;}
+  .cover,.intro-block,.services-section,.research-section,.prob-sol-section,.cro-intro-block,.cro-tabs-section,.timeline-section,.stats-banner,.portfolio-section,.why-section,.footer-top,.footer-bottom{padding-left:32px;padding-right:32px;}
+  .cover{padding-top:28px;padding-bottom:40px;min-height:100svh;}
   .services-grid,.research-grid,.why-cards,.prob-sol-grid{grid-template-columns:1fr;}
   .intro-body{grid-template-columns:1fr;}
   .cro-impact-row,.stats-row{grid-template-columns:repeat(2,1fr);}
   .niche-panel.active{grid-template-columns:1fr;}
   .change-row{grid-template-columns:36px 1fr;}
   .change-priority,.change-lift{display:none;}
-  .cover-bottom{flex-direction:column;gap:24px;align-items:flex-start;}
-  .cover-meta{gap:24px;flex-wrap:wrap;}
+  .cover-bottom{flex-direction:column;gap:20px;align-items:flex-start;}
+  .cover-meta{gap:20px;flex-wrap:wrap;}
+  .cover-title{font-size:clamp(52px,12vw,96px);}
   .portfolio-eyebrow-row{flex-direction:column;align-items:flex-start;gap:16px;}
   .portfolio-subtitle{text-align:left;}
   .tl-item{grid-template-columns:80px 40px 1fr;}
@@ -310,6 +314,153 @@ body:hover #cursor-glow{opacity:1;}
   .footer-bottom{flex-direction:column;gap:12px;align-items:flex-start;}
   .footer-bottom-right{text-align:left;}
   #cursor-glow{display:none;}
+  .niche-tabs{flex-wrap:wrap;}
+  .cro-page-tabs{flex-wrap:wrap;width:fit-content;}
+  .tl-card{padding:18px 20px;}
+  .tl-tasks{gap:6px;}
+}
+
+/* ── MOBILE (max 600px) ── */
+@media(max-width:600px){
+  /* Base padding */
+  .cover,.intro-block,.services-section,.research-section,.prob-sol-section,
+  .cro-intro-block,.cro-tabs-section,.timeline-section,.stats-banner,
+  .portfolio-section,.why-section,.footer-top,.footer-bottom{padding-left:20px;padding-right:20px;}
+  section{padding-top:56px;padding-bottom:56px;}
+  .intro-block,.services-section,.research-section,.prob-sol-section,
+  .cro-intro-block,.timeline-section,.stats-banner,.portfolio-section,.why-section{padding-top:56px;padding-bottom:56px;}
+
+  /* Cover */
+  .cover{padding:20px 20px 32px;min-height:100svh;justify-content:flex-start;gap:0;}
+  .cover-top{flex-direction:row;justify-content:space-between;align-items:flex-start;margin-bottom:0;}
+  .doc-ref{font-size:10px;text-align:right;}
+  .agency-name{font-size:10px;}
+  .cover-center{padding:28px 0 24px;flex:1;}
+  .cover-eyebrow{font-size:8px;letter-spacing:0.2em;margin-bottom:18px;}
+  .cover-title{font-size:clamp(52px,15vw,80px);line-height:0.92;}
+  .cover-rule{margin:18px auto;}
+  .cover-rebrand{font-size:9px;letter-spacing:0.14em;padding:6px 14px;display:block;text-align:center;}
+  .cover-subtitle{font-size:12px;max-width:100%;margin-top:12px;}
+  /* Bottom meta - horizontal compact grid */
+  .cover-bottom{flex-direction:column;gap:0;align-items:stretch;}
+  .cover-meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:12px;}
+  .meta-item{padding:12px 14px;background:var(--bg);}
+  .meta-item label{font-size:8px;letter-spacing:0.2em;margin-bottom:4px;}
+  .meta-item span{font-size:14px;}
+  .cover-stamp{font-size:9px;letter-spacing:0.12em;text-align:center;padding-top:8px;}
+
+  /* Section headings */
+  .section-eyebrow{font-size:10px;margin-bottom:24px;letter-spacing:0.22em;}
+  .intro-block h2,.why-header,.prob-sol-section h2,.cro-intro-block h2,
+  .timeline-header h2,.portfolio-title{font-size:clamp(30px,9vw,44px);}
+  .research-section .section-eyebrow,.services-section .section-eyebrow,
+  .why-section .section-eyebrow,.portfolio-section .section-eyebrow,
+  .timeline-section .section-eyebrow,.stats-banner .section-eyebrow,
+  .prob-sol-section .section-eyebrow,.cro-intro-block .section-eyebrow,
+  .cro-tabs-section .section-eyebrow{font-size:10px;}
+
+  /* Intro */
+  .intro-body{grid-template-columns:1fr;gap:20px;}
+  .intro-body p{font-size:13px;}
+  .learn-more-btn{margin-top:28px;padding:12px 24px;font-size:9px;}
+
+  /* Services */
+  .services-grid{grid-template-columns:1fr;}
+  .service-card{padding:28px 22px;}
+  .service-icon{font-size:32px;margin-bottom:12px;}
+  .service-card h3{font-size:16px;}
+  .service-card p{font-size:13px;}
+
+  /* Research */
+  .research-grid{grid-template-columns:1fr;}
+  .research-card{padding:24px 20px;}
+  .research-stat{font-size:42px;}
+  .research-card p{font-size:13px;}
+  .research-card-label{font-size:11px;}
+  .research-stat-label{font-size:12px;}
+
+  /* Problem/Solution */
+  .prob-sol-grid{grid-template-columns:1fr;}
+  .prob-col{padding:24px 20px;}
+  .prob-col:last-child{border-left:none;border-top:2px solid var(--border);}
+  .prob-text{font-size:12px;}
+
+  /* CRO */
+  .cro-intro-block h2{font-size:clamp(24px,7vw,38px);}
+  .cro-impact-row{grid-template-columns:repeat(2,1fr);}
+  .cro-impact-num{font-size:34px;}
+  .cro-tabs-section{padding-left:20px;padding-right:20px;padding-bottom:40px;padding-top:0;}
+  .cro-page-tabs{display:grid;grid-template-columns:1fr 1fr;width:100%;gap:1px;}
+  .cro-page-tab{text-align:center;padding:11px 8px;font-size:9px;letter-spacing:0.12em;white-space:nowrap;line-height:1.3;}
+  .cro-page-tabs{margin-top:20px;}
+  /* Mobile card layout for CRO changes */
+  .changes-grid{gap:2px;}
+  .header-row{display:none!important;}
+  .change-row{display:block;padding:18px 16px;border-bottom:1px solid var(--border);background:var(--bg);}
+  .change-row>div{padding:0;border-right:none;display:block;}
+  .change-num{font-family:'Cormorant Garamond',serif;font-size:20px;color:rgba(200,169,110,0.25);line-height:1;margin-bottom:6px;display:block;}
+  .change-priority{display:inline-flex;margin-top:10px;margin-right:8px;}
+  .change-lift{font-family:'Cormorant Garamond',serif;font-size:16px;color:#70c070;display:inline-block;vertical-align:middle;margin-top:10px;}
+  .change-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:6px;display:block;}
+  .change-desc{font-size:12px;color:var(--muted);line-height:1.65;display:block;}
+
+  /* Timeline */
+  .tl-item{grid-template-columns:60px 32px 1fr;}
+  .tl-week{padding:28px 10px 28px 0;}
+  .tl-week-num{font-size:16px;}
+  .tl-week-label{font-size:8px;}
+  .tl-node{width:12px;height:12px;margin-top:32px;}
+  .tl-body{padding:20px 0 20px 18px;}
+  .tl-card{padding:16px 18px;}
+  .tl-title{font-size:14px;}
+  .tl-tasks{gap:6px;}
+  .tl-task{font-size:10px;padding:4px 10px;}
+
+  /* Stats */
+  .stats-banner{padding:40px 20px;}
+  .stats-row{grid-template-columns:repeat(2,1fr);}
+  .stats-big{font-size:40px;}
+  .stats-label{font-size:9px;}
+
+  /* Portfolio */
+  .portfolio-section{padding-top:56px;padding-bottom:56px;}
+  .niche-tabs{flex-wrap:wrap;width:100%;}
+  .niche-tab{flex:1;min-width:80px;text-align:center;font-size:9px;padding:10px 12px;}
+  .niche-panel.active{grid-template-columns:1fr;}
+  .portfolio-thumb{height:200px;}
+  .portfolio-card-name{font-size:12px;}
+  .portfolio-card-url{font-size:10px;}
+  .portfolio-eyebrow-row{flex-direction:column;gap:12px;}
+  .portfolio-subtitle{text-align:left;max-width:100%;}
+
+  /* Why us */
+  .why-section{padding-top:56px;padding-bottom:56px;}
+  .why-cards{grid-template-columns:1fr;}
+  .why-card{padding:24px 20px;}
+  .why-header{font-size:clamp(26px,8vw,40px);margin-bottom:32px;}
+
+  /* Footer */
+  .footer-top{padding:48px 20px 40px;grid-template-columns:1fr;gap:32px;text-align:center;}
+  .footer-logo-row{justify-content:center;}
+  .footer-tagline{max-width:100%;text-align:center;}
+  .footer-col h5{text-align:center;}
+  .footer-col ul{display:flex;flex-direction:column;align-items:center;}
+  .footer-bottom{padding:20px;flex-direction:column;gap:10px;align-items:center;}
+  .footer-brand-name{font-size:22px;}
+  .footer-tagline{font-size:12px;}
+  .footer-col h5{font-size:9px;}
+  .footer-col ul li a,.footer-col ul li span{font-size:11px;}
+  .footer-bottom-left,.footer-bottom-right{font-size:10px;text-align:center;}
+  .footer-bottom-right{max-width:100%;}
+  #cursor-glow{display:none;}
+}
+
+/* ── SMALL MOBILE (max 400px) ── */
+@media(max-width:400px){
+  .cover-title{font-size:clamp(38px,12vw,56px);}
+  .cro-impact-row{grid-template-columns:1fr 1fr;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .cro-page-tab{font-size:8px;padding:9px 8px;letter-spacing:0.12em;}
 }
 </style>
 </head>
@@ -359,7 +510,7 @@ body:hover #cursor-glow{opacity:1;}
 
 <!-- SERVICES -->
 <section class="services-section">
-  <div class="section-eyebrow reveal">What We're Proposing for Label Aarna</div>
+  <div class="section-eyebrow reveal" style="font-size:13px;letter-spacing:0.18em;font-weight:500;">What We're Proposing for Label Aarna</div>
   <div class="services-grid">
     <div class="service-card reveal" style="transition-delay:0s;"><div class="service-card-num">01</div><div class="service-icon">I</div><h3>Complete Site Redesign</h3><p>Collection pages, product pages, cart, and checkout — all redesigned with conversion-first architecture. Advanced filters, sticky ATC, variant UX upgrade, photo review integration, and cart upsell mechanics.</p></div>
     <div class="service-card reveal" style="transition-delay:0.08s;"><div class="service-card-num">02</div><div class="service-icon">II</div><h3>CRO Roadmap</h3><p>Every recommendation is sequenced, scoped, and ready to implement. Critical changes first — high-impact, low-risk. Each targets a specific drop-off point in your funnel.</p></div>
@@ -370,7 +521,7 @@ body:hover #cursor-glow{opacity:1;}
 
 <!-- RESEARCH -->
 <section class="research-section">
-  <div class="section-eyebrow reveal">Brand Research — What We Found at labelaarna.com</div>
+  <div class="section-eyebrow reveal" style="font-size:13px;letter-spacing:0.18em;font-weight:500;margin-bottom:32px;">Brand Research — What We Found at labelaarna.com</div>
   <div class="research-grid">
     <div class="research-card reveal" style="transition-delay:0s;"><div class="research-card-num">01</div><div class="research-card-label">Brand Strength</div><div class="research-stat" data-count="1">1M+</div><div class="research-stat-label">Happy Customers</div><p style="margin-top:14px;">Label Aarna has built exceptional customer loyalty — 1M+ happy customers and a consistent 4.7/5 rating across 1,631+ verified reviews. Our job is to make this trust visible at every purchase hesitation point.</p></div>
     <div class="research-card reveal" style="transition-delay:0.07s;"><div class="research-card-num">02</div><div class="research-card-label">Product Catalogue</div><div class="research-stat">250+</div><div class="research-stat-label">Active SKUs across 4 categories</div><p style="margin-top:14px;">Kaftans, Co-ord Sets, Sarees, and Suit Sets. This range is a strength, but without advanced filtering, most visitors never discover more than the first scroll.</p></div>
@@ -383,7 +534,7 @@ body:hover #cursor-glow{opacity:1;}
 
 <!-- PROBLEM / SOLUTION -->
 <section class="prob-sol-section">
-  <div class="section-eyebrow reveal">Site Audit</div>
+  <div class="section-eyebrow reveal" style="font-size:13px;letter-spacing:0.18em;font-weight:500;">Site Audit</div>
   <h2 class="reveal">Current issues — and<br><em>exactly how we solve them.</em></h2>
   <p class="sub reveal">Every problem we identified has a direct, implementable solution. Below is the full issue-to-fix mapping from our live audit of labelaarna.com.</p>
   <div class="prob-sol-grid reveal-scale">
@@ -424,7 +575,7 @@ body:hover #cursor-glow{opacity:1;}
 
 <!-- CRO INTRO -->
 <section class="cro-intro-block">
-  <div class="section-eyebrow reveal">Main Changes We Will Be Focusing On</div>
+  <div class="section-eyebrow reveal" style="font-size:13px;letter-spacing:0.18em;font-weight:500;">Main Changes We Will Be Focusing On</div>
   <h2 class="reveal">Every change. Defined.<br><em>Sequenced. Delivered.</em></h2>
   <p class="cro-intro-sub reveal">We audited every page of labelaarna.com and identified 23 specific, measurable changes that will improve your conversion rate. Each one has a defined implementation scope, a priority level, and a projected revenue impact. Browse by page using the tabs below.</p>
   <div class="cro-impact-row reveal-scale">
@@ -445,7 +596,7 @@ body:hover #cursor-glow{opacity:1;}
   </div>
   <div class="cro-tab-panel active" id="cro-hp">
     <div class="changes-grid">
-      <div class="change-row header-row"><div>#</div><div>Change &amp; What We Will Do</div><div>Priority</div><div>Lift</div></div>
+      <div class="change-row header-row"><div style="font-size:11px;opacity:0.5;">№</div><div>Change &amp; What We Will Do</div><div>Priority</div><div>Lift</div></div>
       <div class="change-row"><div class="change-num">1</div><div><div class="change-title">Hero Redesign with Persistent CTA</div><div class="change-desc">Bold headline ("For every version of you") with a high-contrast Shop Now button that stays visible regardless of which banner is active.</div></div><div class="change-priority"><span class="priority-chip p-critical">Critical</span></div><div class="change-lift">+18%</div></div>
       <div class="change-row"><div class="change-num">2</div><div><div class="change-title">Static Trust Strip Below Header</div><div class="change-desc">Dedicated static strip (Free Shipping · Free COD · Easy Returns) immediately below nav — replacing the fast-moving ticker which dilutes each message.</div></div><div class="change-priority"><span class="priority-chip p-critical">Critical</span></div><div class="change-lift">+12%</div></div>
       <div class="change-row"><div class="change-num">3</div><div><div class="change-title">Category Navigation — Elevated &amp; Expanded</div><div class="change-desc">Collections moved to second position after the trust strip, with sub-category shortcuts ("Long Kaftans", "Linen Co-ords") and upgraded editorial imagery.</div></div><div class="change-priority"><span class="priority-chip p-high">High</span></div><div class="change-lift">+10%</div></div>
@@ -461,7 +612,7 @@ body:hover #cursor-glow{opacity:1;}
   </div>
   <div class="cro-tab-panel" id="cro-col">
     <div class="changes-grid">
-      <div class="change-row header-row"><div>#</div><div>Change &amp; What We Will Do</div><div>Priority</div><div>Lift</div></div>
+      <div class="change-row header-row"><div style="font-size:11px;opacity:0.5;">№</div><div>Change &amp; What We Will Do</div><div>Priority</div><div>Lift</div></div>
       <div class="change-row"><div class="change-num">12</div><div><div class="change-title">Advanced Multi-Select Filter Panel</div><div class="change-desc">Multi-select filters for Size, Colour, Fabric Type, Length, Price Range, Occasion — sticky desktop, drawer mobile. Results update without page reload. Directly addresses the 198-product discovery problem.</div></div><div class="change-priority"><span class="priority-chip p-critical">Critical</span></div><div class="change-lift">+18%</div></div>
       <div class="change-row"><div class="change-num">13</div><div><div class="change-title">Quick Add + Buy Now Flow</div><div class="change-desc">Faster size selection, satisfying cart animation, and a Buy Now button for high-intent users — removing 2–3 taps from the purchase path.</div></div><div class="change-priority"><span class="priority-chip p-critical">Critical</span></div><div class="change-lift">+12%</div></div>
       <div class="change-row"><div class="change-num">14</div><div><div class="change-title">Wishlist Button + Hover Image Swap</div><div class="change-desc">Persistent heart icon wishlist on every card. Desktop hover swaps to alternate product image. Wishlist data creates a retargeting audience for future campaigns.</div></div><div class="change-priority"><span class="priority-chip p-high">High</span></div><div class="change-lift">+9%</div></div>
@@ -471,7 +622,7 @@ body:hover #cursor-glow{opacity:1;}
   </div>
   <div class="cro-tab-panel" id="cro-pdp">
     <div class="changes-grid">
-      <div class="change-row header-row"><div>#</div><div>Change &amp; What We Will Do</div><div>Priority</div><div>Lift</div></div>
+      <div class="change-row header-row"><div style="font-size:11px;opacity:0.5;">№</div><div>Change &amp; What We Will Do</div><div>Priority</div><div>Lift</div></div>
       <div class="change-row"><div class="change-num">17</div><div><div class="change-title">Sticky Add to Cart — Mobile &amp; Desktop</div><div class="change-desc">Sticky bottom bar on mobile with product name, size, price, ATC at all times. Desktop right-column becomes sticky relative to image gallery. ATC is never out of reach.</div></div><div class="change-priority"><span class="priority-chip p-critical">Critical</span></div><div class="change-lift">+12%</div></div>
       <div class="change-row"><div class="change-num">18</div><div><div class="change-title">UGC Integration + Trust Badge Row</div><div class="change-desc">Aggregate star rating below product title, photo review UGC strip below images, and trust badge row (Secure Checkout · Free COD · Easy Returns) directly below ATC.</div></div><div class="change-priority"><span class="priority-chip p-high">High</span></div><div class="change-lift">+15%</div></div>
       <div class="change-row"><div class="change-num">19</div><div><div class="change-title">Variant UX Redesign</div><div class="change-desc">Colour swatches showing actual fabric prints, visually distinct selected size state, out-of-stock variants crossed out with "Notify Me" CTA, dynamic image gallery swap — no page reload.</div></div><div class="change-priority"><span class="priority-chip p-critical">Critical</span></div><div class="change-lift">+10%</div></div>
@@ -480,7 +631,7 @@ body:hover #cursor-glow{opacity:1;}
   </div>
   <div class="cro-tab-panel" id="cro-cart">
     <div class="changes-grid">
-      <div class="change-row header-row"><div>#</div><div>Change &amp; What We Will Do</div><div>Priority</div><div>Lift</div></div>
+      <div class="change-row header-row"><div style="font-size:11px;opacity:0.5;">№</div><div>Change &amp; What We Will Do</div><div>Priority</div><div>Lift</div></div>
       <div class="change-row"><div class="change-num">21</div><div><div class="change-title">Free Gift Progress Bar + Upsell Strip</div><div class="change-desc">Dynamic progress bar "Add ₹X more to unlock your free gift" + celebration animation when met. "You Might Also Love" strip surfaces 3–4 complementary products.</div></div><div class="change-priority"><span class="priority-chip p-high">High</span></div><div class="change-lift">+19%</div></div>
       <div class="change-row"><div class="change-num">22</div><div><div class="change-title">Pinned Checkout Button + Payment Trust</div><div class="change-desc">Checkout button pinned to cart drawer bottom at all times. UPI / Cards / COD logos + security badge immediately below — final trust layer at the checkout threshold.</div></div><div class="change-priority"><span class="priority-chip p-critical">Critical</span></div><div class="change-lift">+11%</div></div>
       <div class="change-row"><div class="change-num">23</div><div><div class="change-title">Exit Intent Recovery Overlay</div><div class="change-desc">Desktop: cursor toward browser chrome. Mobile: 45s cart inactivity. Shows cart contents, personalised message, single-use 5% prepaid offer. One-click close.</div></div><div class="change-priority"><span class="priority-chip p-medium">Medium</span></div><div class="change-lift">+8%</div></div>
@@ -491,7 +642,7 @@ body:hover #cursor-glow{opacity:1;}
 <!-- TIMELINE -->
 <section class="timeline-section">
   <div class="timeline-header">
-    <div class="section-eyebrow reveal">Delivery Plan</div>
+    <div class="section-eyebrow reveal" style="font-size:13px;letter-spacing:0.18em;font-weight:500;">Delivery Plan</div>
     <h2 class="reveal">From kickoff to live —<br><em>in three weeks.</em></h2>
     <p class="reveal">A structured, phased delivery plan that prioritises high-impact changes first, minimises risk to your live store, and gives you measurable results within 30 days of kickoff.</p>
   </div>
@@ -573,7 +724,7 @@ body:hover #cursor-glow{opacity:1;}
 
 <!-- STATS -->
 <section class="stats-banner">
-  <div class="section-eyebrow reveal" style="margin-bottom:32px;">Our Track Record Across D2C Ecommerce</div>
+  <div class="section-eyebrow reveal" style="font-size:13px;letter-spacing:0.18em;font-weight:500;margin-bottom:32px;">Our Track Record Across D2C Ecommerce</div>
   <div class="stats-row">
     <div class="stats-cell reveal" style="transition-delay:0s;"><div class="stats-big count-anim" data-target="10" data-suffix="+">0</div><div class="stats-label">Years of Experience</div></div>
     <div class="stats-cell reveal" style="transition-delay:0.08s;"><div class="stats-big count-anim" data-target="150" data-suffix="+">0</div><div class="stats-label">Stores Optimised</div></div>
@@ -586,7 +737,7 @@ body:hover #cursor-glow{opacity:1;}
 <section class="portfolio-section">
   <div class="portfolio-eyebrow-row">
     <div>
-      <div class="section-eyebrow reveal">Our Portfolio</div>
+      <div class="section-eyebrow reveal" style="font-size:13px;letter-spacing:0.18em;font-weight:500;">Our Portfolio</div>
       <div class="portfolio-title reveal">Work that proves<br><em>what we claim.</em></div>
     </div>
     <p class="portfolio-subtitle reveal-right">Every store below was built or optimised by Codestrokes Solution. Click any card to visit the live site.</p>
@@ -833,7 +984,7 @@ body:hover #cursor-glow{opacity:1;}
 
 <!-- WHY US -->
 <section class="why-section">
-  <div class="section-eyebrow reveal">Why Codestrokes Solution</div>
+  <div class="section-eyebrow reveal" style="font-size:13px;letter-spacing:0.18em;font-weight:500;">Why Codestrokes Solution</div>
   <div class="why-header reveal">The agency that did the work <em>before</em> the pitch.</div>
   <div class="why-cards">
     <div class="why-card highlighted reveal" style="transition-delay:0s;"><div class="why-card-icon">I</div><h3>We audited your actual store</h3><p>Every recommendation in this document comes from a live audit of labelaarna.com. We scrolled your homepage, browsed your kaftan collection, added products to cart, traced the full mobile checkout flow, and then built a redesigned homepage to prove our thinking.</p></div>
